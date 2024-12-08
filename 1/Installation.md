@@ -56,4 +56,21 @@ Before
 
 ![image](https://github.com/user-attachments/assets/dfd1c493-494f-449e-9081-1be9712ae5c6)
 
+sudo dnf install ansible
+
+
+Installing windows modules
+![image](https://github.com/user-attachments/assets/93634326-da1e-4e65-8b1e-776ff56534dd)
+
+Repo is not configured\
+
+![image](https://github.com/user-attachments/assets/46f6709a-4bcc-4a50-8f5f-29fefa7fb096)
+
+
+
+Check all the modules installed
+ansible-galaxy collection list
+
+![image](https://github.com/user-attachments/assets/5d861e35-83c0-4cb1-9471-15bbf9801f90)
+
 
