@@ -11,3 +11,10 @@ here you can specify your own variables for your windows group
 
 
 # check the powershell script ran on the windows to the Winrm configuration and ports are opened and also the username is correct and password using to connect is correct.
+
+
+#now ypu can check the communication of controller node and windows host.
+First do the manul ping if it succeed then work for ansbile ping
+
+ansible all -m win_ping
+![image](https://github.com/user-attachments/assets/499af472-b11d-4823-b985-c3563de25967)
