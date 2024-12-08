@@ -19,3 +19,11 @@ Now, every time you log in, the ANSIBLE_CONFIG variable will point to your ansib
 
 forcing the playbook to use cfg file
 ANSIBLE_CONFIG=/etc/ansible/Ansible_E2E/ansible-windows-automation/ansible.cfg ansible-playbook playbooks/setup_chocolatey.yml
+
+Get all the collection list
+ansible-galaxy collection list
+
+
+reading the modules available in collectios
+ansible-galaxy collection list
+ansible-doc -l | grep 'community.windows'
