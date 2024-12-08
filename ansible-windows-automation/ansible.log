@@ -19131,3 +19131,100 @@ If you are using a module and expect the file to exist on the remote, see the re
 2024-12-08 17:52:16,581 p=80177 u=contoller n=ansible | Pipelining is enabled.
 2024-12-08 17:52:16,590 p=80177 u=contoller n=ansible | <192.168.112.129> ESTABLISH WINRM CONNECTION FOR USER: ansibleuser on PORT 5986 TO 192.168.112.129
 2024-12-08 17:52:16,836 p=80177 u=contoller n=ansible | EXEC (via pipeline wrapper)
+2024-12-08 17:52:22,421 p=80177 u=contoller n=ansible | changed: [win_host1] => {
+    "changed": true,
+    "cmd": "systeminfo",
+    "delta": "0:00:02.296699",
+    "end": "2024-12-08 12:22:22.086122",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "systeminfo",
+            "argv": null,
+            "chdir": null,
+            "cmd": null,
+            "creates": null,
+            "output_encoding_override": null,
+            "removes": null,
+            "stdin": null
+        }
+    },
+    "rc": 0,
+    "start": "2024-12-08 12:22:19.789423",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "\r\nHost Name:                 WIN10-NODE1\r\nOS Name:                   Microsoft Windows 10 Pro\r\nOS Version:                10.0.19043 N/A Build 19043\r\nOS Manufacturer:           Microsoft Corporation\r\nOS Configuration:          Standalone Workstation\r\nOS Build Type:             Multiprocessor Free\r\nRegistered Owner:          bisani.reddy@gmail.com\r\nRegistered Organization:   \r\nProduct ID:                00330-80000-00000-AA515\r\nOriginal Install Date:     12/1/2024, 12:43:10 AM\r\nSystem Boot Time:          12/8/2024, 1:21:50 PM\r\nSystem Manufacturer:       VMware, Inc.\r\nSystem Model:              VMware20,1\r\nSystem Type:               x64-based PC\r\nProcessor(s):              1 Processor(s) Installed.\r\n                           [01]: Intel64 Family 6 Model 140 Stepping 1 GenuineIntel ~2611 Mhz\r\nBIOS Version:              VMware, Inc. VMW201.00V.24006586.B64.2406042154, 6/4/2024\r\nWindows Directory:         C:\\Windows\r\nSystem Directory:          C:\\Windows\\system32\r\nBoot Device:               \\Device\\HarddiskVolume1\r\nSystem Locale:             en-us;English (United States)\r\nInput Locale:              00004009\r\nTime Zone:                 (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi\r\nTotal Physical Memory:     4,095 MB\r\nAvailable Physical Memory: 1,498 MB\r\nVirtual Memory: Max Size:  5,503 MB\r\nVirtual Memory: Available: 2,249 MB\r\nVirtual Memory: In Use:    3,254 MB\r\nPage File Location(s):     C:\\pagefile.sys\r\nDomain:                    WORKGROUP\r\nLogon Server:              N/A\r\nHotfix(s):                 8 Hotfix(s) Installed.\r\n                           [01]: KB5020872\r\n                           [02]: KB5000736\r\n                           [03]: KB5015684\r\n                           [04]: KB5020683\r\n                           [05]: KB5033052\r\n                           [06]: KB5046613\r\n                           [07]: KB5046823\r\n                           [08]: KB5001405\r\nNetwork Card(s):           1 NIC(s) Installed.\r\n                           [01]: Intel(R) 82574L Gigabit Network Connection\r\n                                 Connection Name: Ethernet0\r\n                                 DHCP Enabled:    Yes\r\n                                 DHCP Server:     192.168.112.254\r\n                                 IP address(es)\r\n                                 [01]: 192.168.112.129\r\nHyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.\r\n",
+    "stdout_lines": [
+        "",
+        "Host Name:                 WIN10-NODE1",
+        "OS Name:                   Microsoft Windows 10 Pro",
+        "OS Version:                10.0.19043 N/A Build 19043",
+        "OS Manufacturer:           Microsoft Corporation",
+        "OS Configuration:          Standalone Workstation",
+        "OS Build Type:             Multiprocessor Free",
+        "Registered Owner:          bisani.reddy@gmail.com",
+        "Registered Organization:   ",
+        "Product ID:                00330-80000-00000-AA515",
+        "Original Install Date:     12/1/2024, 12:43:10 AM",
+        "System Boot Time:          12/8/2024, 1:21:50 PM",
+        "System Manufacturer:       VMware, Inc.",
+        "System Model:              VMware20,1",
+        "System Type:               x64-based PC",
+        "Processor(s):              1 Processor(s) Installed.",
+        "                           [01]: Intel64 Family 6 Model 140 Stepping 1 GenuineIntel ~2611 Mhz",
+        "BIOS Version:              VMware, Inc. VMW201.00V.24006586.B64.2406042154, 6/4/2024",
+        "Windows Directory:         C:\\Windows",
+        "System Directory:          C:\\Windows\\system32",
+        "Boot Device:               \\Device\\HarddiskVolume1",
+        "System Locale:             en-us;English (United States)",
+        "Input Locale:              00004009",
+        "Time Zone:                 (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+        "Total Physical Memory:     4,095 MB",
+        "Available Physical Memory: 1,498 MB",
+        "Virtual Memory: Max Size:  5,503 MB",
+        "Virtual Memory: Available: 2,249 MB",
+        "Virtual Memory: In Use:    3,254 MB",
+        "Page File Location(s):     C:\\pagefile.sys",
+        "Domain:                    WORKGROUP",
+        "Logon Server:              N/A",
+        "Hotfix(s):                 8 Hotfix(s) Installed.",
+        "                           [01]: KB5020872",
+        "                           [02]: KB5000736",
+        "                           [03]: KB5015684",
+        "                           [04]: KB5020683",
+        "                           [05]: KB5033052",
+        "                           [06]: KB5046613",
+        "                           [07]: KB5046823",
+        "                           [08]: KB5001405",
+        "Network Card(s):           1 NIC(s) Installed.",
+        "                           [01]: Intel(R) 82574L Gigabit Network Connection",
+        "                                 Connection Name: Ethernet0",
+        "                                 DHCP Enabled:    Yes",
+        "                                 DHCP Server:     192.168.112.254",
+        "                                 IP address(es)",
+        "                                 [01]: 192.168.112.129",
+        "Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed."
+    ]
+}
+2024-12-08 17:52:22,451 p=80177 u=contoller n=ansible | TASK [chocolatey_setup : Show the result of systeminfo] ********************************************************************************************
+2024-12-08 17:52:22,549 p=80177 u=contoller n=ansible | ok: [win_host1] => {
+    "msg": "\r\nHost Name:                 WIN10-NODE1\r\nOS Name:                   Microsoft Windows 10 Pro\r\nOS Version:                10.0.19043 N/A Build 19043\r\nOS Manufacturer:           Microsoft Corporation\r\nOS Configuration:          Standalone Workstation\r\nOS Build Type:             Multiprocessor Free\r\nRegistered Owner:          bisani.reddy@gmail.com\r\nRegistered Organization:   \r\nProduct ID:                00330-80000-00000-AA515\r\nOriginal Install Date:     12/1/2024, 12:43:10 AM\r\nSystem Boot Time:          12/8/2024, 1:21:50 PM\r\nSystem Manufacturer:       VMware, Inc.\r\nSystem Model:              VMware20,1\r\nSystem Type:               x64-based PC\r\nProcessor(s):              1 Processor(s) Installed.\r\n                           [01]: Intel64 Family 6 Model 140 Stepping 1 GenuineIntel ~2611 Mhz\r\nBIOS Version:              VMware, Inc. VMW201.00V.24006586.B64.2406042154, 6/4/2024\r\nWindows Directory:         C:\\Windows\r\nSystem Directory:          C:\\Windows\\system32\r\nBoot Device:               \\Device\\HarddiskVolume1\r\nSystem Locale:             en-us;English (United States)\r\nInput Locale:              00004009\r\nTime Zone:                 (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi\r\nTotal Physical Memory:     4,095 MB\r\nAvailable Physical Memory: 1,498 MB\r\nVirtual Memory: Max Size:  5,503 MB\r\nVirtual Memory: Available: 2,249 MB\r\nVirtual Memory: In Use:    3,254 MB\r\nPage File Location(s):     C:\\pagefile.sys\r\nDomain:                    WORKGROUP\r\nLogon Server:              N/A\r\nHotfix(s):                 8 Hotfix(s) Installed.\r\n                           [01]: KB5020872\r\n                           [02]: KB5000736\r\n                           [03]: KB5015684\r\n                           [04]: KB5020683\r\n                           [05]: KB5033052\r\n                           [06]: KB5046613\r\n                           [07]: KB5046823\r\n                           [08]: KB5001405\r\nNetwork Card(s):           1 NIC(s) Installed.\r\n                           [01]: Intel(R) 82574L Gigabit Network Connection\r\n                                 Connection Name: Ethernet0\r\n                                 DHCP Enabled:    Yes\r\n                                 DHCP Server:     192.168.112.254\r\n                                 IP address(es)\r\n                                 [01]: 192.168.112.129\r\nHyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.\r\n"
+}
+2024-12-08 17:52:22,568 p=80177 u=contoller n=ansible | TASK [chocolatey_setup : Create a directory on Windows] ********************************************************************************************
+2024-12-08 17:52:22,619 p=80177 u=contoller n=ansible | redirecting (type: modules) ansible.builtin.win_file to ansible.windows.win_file
+2024-12-08 17:52:22,621 p=80177 u=contoller n=ansible | redirecting (type: modules) ansible.builtin.win_file to ansible.windows.win_file
+2024-12-08 17:52:22,649 p=80177 u=contoller n=ansible | Using module file /home/contoller/.ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_file.ps1
+2024-12-08 17:52:22,650 p=80177 u=contoller n=ansible | Pipelining is enabled.
+2024-12-08 17:52:22,655 p=80177 u=contoller n=ansible | <192.168.112.129> ESTABLISH WINRM CONNECTION FOR USER: ansibleuser on PORT 5986 TO 192.168.112.129
+2024-12-08 17:52:22,871 p=80177 u=contoller n=ansible | EXEC (via pipeline wrapper)
+2024-12-08 17:52:25,358 p=80177 u=contoller n=ansible | changed: [win_host1] => {
+    "changed": true
+}
+2024-12-08 17:52:25,385 p=80177 u=contoller n=ansible | TASK [chocolatey_setup : Show the result of systeminfo] ********************************************************************************************
+2024-12-08 17:52:25,482 p=80177 u=contoller n=ansible | ok: [win_host1] => {
+    "msg": {
+        "changed": true,
+        "failed": false
+    }
+}
+2024-12-08 17:52:25,563 p=80177 u=contoller n=ansible | PLAY RECAP *****************************************************************************************************************************************
+2024-12-08 17:52:25,565 p=80177 u=contoller n=ansible | win_host1                  : ok=19   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
