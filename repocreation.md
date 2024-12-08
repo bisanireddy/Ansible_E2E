@@ -25,3 +25,10 @@ If you are a super user, exit and run as normal user
 ![image](https://github.com/user-attachments/assets/2f7ed5c6-3a7d-4a46-a23c-887fa6bf2527)
 
 #install the nessesary extensions
+To enhance your experience with Ansible on VS Code:
+
+Open the Extensions view (Ctrl+Shift+X).
+Search for and install the following extensions:
+Ansible (by Red Hat)
+YAML (by Red Hat)
+Python (if your playbooks include Python scripts).
