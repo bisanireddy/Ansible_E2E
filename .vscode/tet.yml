@@ -1,0 +1,6 @@
+---
+- name: Test WinRM communication
+  hosts: win_host1  # Specify the correct group or hostname
+  tasks:
+    - name: Test winrm connection
+      win_ping:
