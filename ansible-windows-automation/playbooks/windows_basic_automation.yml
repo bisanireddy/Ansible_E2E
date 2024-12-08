@@ -1,7 +1,10 @@
 ---
 - name: Setup Chocolatey on Windows
   hosts: all
-  gather_facts: yes
+  gather_facts: no
 
   roles:
-    - windows_basic_automation
+    - role: windows_basic_automation
+      vars:
+        folder_loop: true  # Set to true to run create_folders.yml
+

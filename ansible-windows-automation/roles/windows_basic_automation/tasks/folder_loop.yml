@@ -1,0 +1,44 @@
+---
+- name: Check and create folders on Windows
+  win_file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "C:\\Temp\\Folder1"
+    - "C:\\Temp\\Folder2"
+    - "C:\\Temp\\Folder3"
+  
+- name: Check if Folder4 exists
+  win_stat:
+    path: "C:\\Temp\\Folder4"
+  register: folder4_exists
+
+- name: Debug Folder4 creation result
+  debug:
+    var: folder4_exists
+
+
+- name: Check and create Folder4 if it doesn't exist
+  win_file:
+    path: "C:\\Temp\\Folder4"
+    state: directory
+  when: not folder4_exists.stat.exists  # Only run if Folder4 doesn't exist
+  register: folder4_creation
+
+- name: Debug Folder4 creation result
+  debug:
+    var: folder4_creation
+
+- name: Check and create Folder4 if it doesn't exist
+  win_file:
+    path: "C:\\Temp\\Folder5"
+    state: directory
+  when: folder4_exists.stat.exists  # Only run if Folder4 doesn't exist
+  register: folder5_creation
+
+
+- name: Debug Folder4 creation result
+  debug:
+    var: folder5_creation
+
+

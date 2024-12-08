@@ -145,7 +145,16 @@
     var: password_change_result
 
 
-
+##Advanced
+- name: Create multiple files on Windows
+  win_copy:
+    content: "This is a test file."
+    dest: "C:\\Temp\\{{ item }}.txt"
+  loop:
+    - file1
+    - file2
+    - file3
+    - file4
 
 
 
