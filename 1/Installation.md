@@ -1,4 +1,4 @@
-Before
+![image](https://github.com/user-attachments/assets/3a7db46e-9775-4af7-8673-cac209b5dce6)Before
 
 ![image](https://github.com/user-attachments/assets/ab9b46c2-5470-4b5f-b34d-4390d8386de9)
 
@@ -41,3 +41,19 @@ ansible-galaxy collection install community.windows
 ![image](https://github.com/user-attachments/assets/c3058e35-7fe6-48ed-96ac-8ad48560bafc)
 
 ![image](https://github.com/user-attachments/assets/dc4abe14-a115-48dc-bfba-cf4722f8a3f7)
+
+
+updating ansible
+
+ansible --version
+pip install --upgrade ansible
+![image](https://github.com/user-attachments/assets/34eb316f-2bc9-446f-82d0-40e59158c666)
+
+
+Before
+
+![image](https://github.com/user-attachments/assets/033b9204-c6a6-425c-b2e4-afda33f1fe85)
+
+![image](https://github.com/user-attachments/assets/dfd1c493-494f-449e-9081-1be9712ae5c6)
+
+
