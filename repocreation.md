@@ -21,3 +21,7 @@ code .
 
 
 If you are a super user, exit and run as normal user
+
+![image](https://github.com/user-attachments/assets/2f7ed5c6-3a7d-4a46-a23c-887fa6bf2527)
+
+#install the nessesary extensions
