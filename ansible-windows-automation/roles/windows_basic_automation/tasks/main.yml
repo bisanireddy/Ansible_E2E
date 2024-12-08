@@ -1,0 +1,151 @@
+---
+# tasks/main.yml
+
+- name: Create a directory on Windows
+  win_file:
+    path: C:\Temp\AnsibleTest
+    state: directory
+  register: dir_creation_result
+
+- name: Debug the directory creation result
+  debug:
+    var: dir_creation_result
+
+# for creating the file win_copy is used and specify the dest
+- name: Create a file on Windows
+  win_copy:
+    content: "This is an Ansible automated file."
+    dest: C:\Temp\AnsibleTest\testfile.txt
+  register: file_creation_result
+
+- name: Debug the file creation result
+  debug:
+    var: file_creation_result
+
+# checking id tre file 
+- name: Check if the file exists
+  win_stat:
+    path: C:\Temp\AnsibleTest\testfile.txt
+  register: file_present
+
+- name: Create a file if it doesn't exist
+  win_copy:
+    content: "This is an Ansible automated file."
+    dest: C:\Temp\AnsibleTest\testfile_nonexistent.txt
+  when: not file_present.stat.exists
+  register: file_creation_result
+
+- name: Debug the file creation result
+  debug:
+    var: file_creation_result
+
+- name: Debug the file creation result
+  debug:
+    msg: "The scheduled task creation was successful: {{ file_creation_result }}"
+
+- name: Debug the file creation result
+  debug:
+    var: file_present
+
+# runnign a custom command on windows
+- name: Run a Windows command (dir C:\Temp)
+  win_command: C:\Windows\System32\cmd.exe /c dir C:\Temp
+  register: command_result
+
+- name: Debug the command result
+  debug:
+    var: command_result
+
+#adding a windows user
+- name: Add a user on Windows
+  win_user:
+    name: AnsibleTestuser
+    password: 'Hash@12345'
+    state: present
+  register: user_creation_result
+
+- name: Debug user creation result
+  debug:
+    var: user_creation_result
+
+#Disk space
+- name: Check available disk space on C:\
+  win_disk_facts:
+  register: disk_facts
+
+- name: Debug disk facts
+  debug:
+    var: disk_facts
+
+
+#Restart service
+- name: Restart Windows Update Service
+  win_service:
+    name: wuauserv
+    state: restarted
+  register: service_restart_result
+
+- name: Debug service restart result
+  debug:
+    var: service_restart_result
+
+- name: Show the result of systeminfo
+  debug:
+    msg: "{{ service_restart_result }}"
+
+
+#installing an MSI
+- name: Install an MSI package
+  win_package:
+    path: "C:\\Temp\\putty.msi"
+    product_id: "{0B06C05B-0069-4FE8-AC19-AAF6678FD0A8}"
+    state: present
+    arguments: "/quiet /norestart"
+  register: msi_install_result
+
+- name: Debug MSI installation result
+  debug:
+    var: msi_install_result
+
+#changing the registry value
+- name: Set the registry value to enable Remote Desktop
+  ansible.windows.win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server
+    name: fDenyTSConnections
+    data: 0
+    type: dword
+    state: present
+  register: reg_modify_result
+
+- name: Debug registry modification result
+  debug:
+    var: reg_modify_result
+
+
+- name: Get registry value
+  ansible.windows.win_reg_stat:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server
+    name: fDenyTSConnections
+  register: reg_info
+
+- name: Debug registry value
+  debug:
+    var: reg_info
+
+#change the password for a user
+- name: Change Windows user password
+  win_user:
+    name: "AnsibleTestuser"
+    password: "NewSecurePassword123!"
+    update_password: always
+  register: password_change_result
+
+- name: Debug password change result
+  debug:
+    var: password_change_result
+
+
+
+
+
+

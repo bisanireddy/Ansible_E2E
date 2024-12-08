@@ -1,0 +1,4 @@
+chocolatey_packages:
+  - git
+  - vscode
+  - googlechrome
