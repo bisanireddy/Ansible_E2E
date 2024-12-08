@@ -32,3 +32,9 @@ Search for and install the following extensions:
 Ansible (by Red Hat)
 YAML (by Red Hat)
 Python (if your playbooks include Python scripts).
+
+
+
+check folder tree structure
+tree ansible-windows-automation
+
