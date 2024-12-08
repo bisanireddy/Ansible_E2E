@@ -17,3 +17,14 @@ After
 
 ![image](https://github.com/user-attachments/assets/f4a176ae-7eda-45db-8cf4-2f32e831c8f8)
 
+
+
+
+example of 
+
+- name: Install Chocolatey
+  win_shell: |
+    Set-ExecutionPolicy Bypass -Scope Process -Force; `
+    [System.Net.ServicePointManager]::SecurityProtocol = `
+    [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
+    iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
