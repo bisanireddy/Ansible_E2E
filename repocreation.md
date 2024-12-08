@@ -18,3 +18,6 @@ the repo folername will be automatically created.
 change the current directory to the repo directory and open the VScode
 
 code .
+
+
+If you are a super user, exit and run as normal user
