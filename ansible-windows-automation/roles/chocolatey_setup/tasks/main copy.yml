@@ -1,0 +1,87 @@
+---
+# roles/chocolatey_setup/tasks/main.yml
+
+- name: Install Chocolatey (if not already installed)
+  win_shell: |
+    Set-ExecutionPolicy Bypass -Scope Process -Force;
+    iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+  when: ansible_chocolatey_installed is not defined or ansible_chocolatey_installed == false
+  register: chocolatey_install
+
+- name: Check if Chocolatey is installed
+  win_command: choco -v
+  register: choco_version
+  changed_when: false
+  failed_when: false
+
+- name: Add Chocolatey repository using win_shell
+  win_shell: |
+    choco source add --name=chocolatey --source=https://community.chocolatey.org/api/v2/
+  when: chocolatey_install is successs
+
+
+- name: Install Google Chrome using Chocolatey
+  cc:
+    name: googlechrome
+    state: present
+  when: chocolatey_install is success
+
+- name: Install multiple packages using Chocolatey
+  win_chocolatey:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - notepadplusplus
+    - vlc
+    - 7zip
+  when: chocolatey_install is success
+
+- name: Upgrade all Chocolatey packages
+  win_chocolatey:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - googlechrome
+    - notepadplusplus
+    - vlc
+  when: chocolatey_install is success
+
+- name: Uninstall Skype using Chocolatey
+  win_chocolatey:
+    name: skype
+    state: absent
+  when: chocolatey_install is success
+
+- name: List all installed Chocolatey packages
+  win_command: choco list --local-only
+  register: installed_choco_packages
+  changed_when: false
+
+- name: Uninstall unused packages from Chocolatey
+  win_chocolatey:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - skype
+    - slack
+  when: chocolatey_install is success
+
+- name: Check if 7zip is installed via Chocolatey
+  win_chocolatey_facts:
+  register: choco_facts
+
+- name: Install packages from list
+  win_chocolatey:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ choco_facts.packages }}"
+  when: item not in choco_facts.packages
+
+- name: Ensure Chocolatey repository is enabled
+  win_chocolatey_repository:
+    name: chocolatey
+    state: present
+    source: https://community.chocolatey.org/api/v2/
+    username: "{{ choco_username }}"
+    password: "{{ choco_password }}"
+  when: chocolatey_install is success

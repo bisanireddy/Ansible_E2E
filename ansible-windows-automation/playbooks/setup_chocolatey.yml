@@ -1,0 +1,7 @@
+---
+- name: Setup Chocolatey on Windows
+  hosts: all
+  gather_facts: no
+
+  roles:
+    - chocolatey_setup
