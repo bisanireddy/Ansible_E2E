@@ -28,3 +28,16 @@ example of
     [System.Net.ServicePointManager]::SecurityProtocol = `
     [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+
+
+#using win_chocolatery is failed
+![image](https://github.com/user-attachments/assets/6b3db117-a051-4192-8a02-f79193277ba8)
+
+
+#Solution
+ansible-galaxy collection install community.windows
+
+![image](https://github.com/user-attachments/assets/c3058e35-7fe6-48ed-96ac-8ad48560bafc)
+
+![image](https://github.com/user-attachments/assets/dc4abe14-a115-48dc-bfba-cf4722f8a3f7)
