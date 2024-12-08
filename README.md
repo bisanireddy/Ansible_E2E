@@ -18,3 +18,6 @@ First do the manul ping if it succeed then work for ansbile ping
 
 ansible all -m win_ping
 ![image](https://github.com/user-attachments/assets/499af472-b11d-4823-b985-c3563de25967)
+
+
+ansible win -i inventory.ini -m win_ping
