@@ -1,0 +1,4 @@
+---
+ansible_user: ansibleuser
+ansible_password: Chinnu@12345
+ansible_connection: winrm

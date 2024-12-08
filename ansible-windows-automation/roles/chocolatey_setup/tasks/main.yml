@@ -1,0 +1,109 @@
+---
+# tasks/main.yml
+
+# Task 1: Install Chocolatey if not already installed
+- name: Install Chocolatey
+  win_shell: |
+    Set-ExecutionPolicy Bypass -Scope Process -Force;
+    iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+  when: ansible_chocolatey_installed is not defined or ansible_chocolatey_installed == false
+  register: chocolatey_install
+
+# Task 2: Configure Chocolatey repository (community source) using PowerShell
+- name: Ensure Chocolatey community repository is enabled
+  win_shell: |
+    choco source add -n=chocolatey -s=https://community.chocolatey.org/api/v2/
+  when: chocolatey_install is success
+
+# Task 4: Install multiple packages using Chocolatey
+- name: Install multiple packages
+  win_shell: choco install {{ item }} -y
+  loop:
+    - notepadplusplus
+    - vlc
+    - 7zip
+  when: chocolatey_install is success
+
+# Task 5: Upgrade all installed packages
+- name: Upgrade Chocolatey packages
+  win_shell: choco upgrade {{ item }} -y
+  loop:
+    - notepadplusplus
+    - vlc
+  when: chocolatey_install is success
+
+- name: Get acm instance version
+  community.windows.win_file_version:
+    path: C:\Windows\System32\cmd.exe
+  register: exe_file_version
+
+- debug:
+    msg: '{{ exe_file_version }}'
+
+- name: Create a new user on the system
+  win_user:
+    name: jdoe
+    password: "SecurePassword123"
+    state: present
+    groups: Administrators
+  register: user_joe_creation
+
+- debug:
+    msg: '{{ user_joe_creation }}'
+
+- name: Ensure the Windows service is started
+  win_service:
+    name: wuauserv
+    state: started
+  register: service_start_status
+
+- name: Ensure the Windows service is stopped
+  win_service:
+    name: wuauserv
+    state: stopped
+  register: service_start_stop
+
+- debug:
+    msg: '{{ service_start_stop }}'
+
+- name: Compress a file
+  community.windows.win_zip:
+    src: C:\Temp\Ansbile.txt
+    dest: C:\Temp\Ansbile.zip
+  register: compress_file
+
+- debug:
+    msg: '{{ compress_file }}'
+
+
+- name: Copy a file
+  ansible.windows.win_copy:
+    src: C:\\Temp\\Ansbile.txt
+    dest: C:\\Temp\\Ansbile.json
+    overwrite: yes
+    remote_src: yes
+  register: copy_file
+
+- debug:
+    msg: '{{ copy_file }}'
+
+
+- name: Get Windows system information
+  win_command: systeminfo
+  register: system_info
+  ignore_errors: yes
+
+- name: Show the result of systeminfo
+  debug:
+    msg: "{{ system_info.stdout }}"
+
+
+- name: Create a directory on Windows
+  win_file:
+    path: "C:\\Temp\\Test"
+    state: directory
+  register: directory_creation_result
+
+- name: Show the result of systeminfo
+  debug:
+    msg: "{{ directory_creation_result }}"

@@ -1,0 +1,9 @@
+all:
+  hosts:
+    win_host1:
+      ansible_host: 192.168.112.129
+      ansible_user: ansibleuser
+      ansible_password: Chinnu@12345
+      ansible_connection: winrm
+      ansible_winrm_transport: basic
+      ansible_winrm_server_cert_validation: ignore
