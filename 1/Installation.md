@@ -74,3 +74,7 @@ ansible-galaxy collection list
 ![image](https://github.com/user-attachments/assets/5d861e35-83c0-4cb1-9471-15bbf9801f90)
 
 
+![image](https://github.com/user-attachments/assets/094469c3-40e6-4438-957f-5ab68dfb2193)
+
+![image](https://github.com/user-attachments/assets/7120bc9e-63c8-4574-afa1-4690ec9daa3e)
+
